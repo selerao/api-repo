@@ -1,10 +1,10 @@
-package com.api.apifb;
+package br.com.excaladashboard;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApifbApplicationTests {
+class ExcaladashboardApplicationTests {
 
 	@Test
 	void contextLoads() {

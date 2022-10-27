@@ -1,13 +1,13 @@
-package com.api.apifb;
+package br.com.excaladashboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApifbApplication {
+public class ExcaladashboardApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApifbApplication.class, args);
+		SpringApplication.run(ExcaladashboardApplication.class, args);
 	}
 
 }
