@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  excala-api:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: excala-api
+    container_name: excalaapp-api
+    ports:
+      - "5005:5005"
+      - "8080:8080"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7.40-debian
+    container_name: excala_db
+    environment:
+      MYSQL_DATABASE: excalaapp
+      MYSQL_USER: $DS_USERNAME
+      MYSQL_PASSWORD: $DS_PASSWORD
+      MYSQL_ROOT_PASSWORD: $DS_PASSWORD
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./tmp/mysql:/var/lib/mysql
