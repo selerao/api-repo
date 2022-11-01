@@ -8,6 +8,7 @@ public class ExcaladashboardApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ExcaladashboardApplication.class, args);
+		System.out.println("Heelloou");
 	}
 
 }

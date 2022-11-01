@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user
+      author: nicolas.fujisawa
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pkey_user
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(32)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: varchar(127)
+                  constraints:
+                    nullable: false
+        - rollback:
+            dropTable:
+              tableName: users
