@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: dev
   jpa:
     properties:
       hibernate:
@@ -12,7 +10,7 @@ spring:
     url: ${DS_URL}
     username: ${DS_USERNAME}
     password: ${DS_PASSWORD}
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       pool-name: excalapoll
