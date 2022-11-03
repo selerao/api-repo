@@ -7,10 +7,10 @@ spring:
       ddl-auto: none
     show-sql: true
   datasource:
-    url: jdbc:mysql://localhost:3306/excalaapp
+    url: jdbc:mysql://db:3306/excalaapp
     username: excalaapp
     password: excalaapp
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       pool-name: excalapoll
@@ -20,7 +20,7 @@ spring:
       connection-timeout: 20000
       idle-timeout: 10000
   liquibase:
-    change-log: classpath:db/migration/db.changelog-master.yaml
+    change-log: classpath:liquibase/master.xml
     enabled: true
 jwt:
   secret: ${JWT_SECRET}
