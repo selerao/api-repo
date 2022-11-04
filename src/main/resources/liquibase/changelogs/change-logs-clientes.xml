@@ -2,33 +2,19 @@
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
-        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
-        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
     <changeSet id="0" author="victor.seleri">
         <createTable tableName="clientes">
-            <column name="id" autoIncrement="true" type="int">
+            <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="empresa" Type="varchar">
-                <constraints nullable="false"/>
-            </column>
-            <column name="responsavel" Type="varchar">
-                <constraints nullable="false"/>
-            </column>
-            <column name="gestor_de_trafego" Type="varchar">
-                <constraints nullable="false"/>
-            </column>
-            <column name="vendedor" Type="varchar">
-                <constraints nullable="false"/>
-            </column>
-            <column name="ativo" Type="varchar">
-                <constraints nullable="false"/>
-            </column>
+            <column name="empresa" type="varchar(256)"/>
+            <column name="responsavel" type="varchar(256)"/>
+            <column name="gestor_de_trafego" type="varchar(256)"/>
+            <column name="vendedor" type="varchar(256)"/>
+            <column name="ativo" type="varchar(256)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
