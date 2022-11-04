@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="0" author="victor.seleri">
+        <createTable tableName="clientes">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="empresa" type="varchar(256)"/>
+            <column name="responsavel" type="varchar(256)"/>
+            <column name="gestor_de_trafego" type="varchar(256)"/>
+            <column name="vendedor" type="varchar(256)"/>
+            <column name="ativo" type="varchar(256)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
