@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="2" author="victor.seleri">
+        <createTable tableName="facebook">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="conta_de_anuncios" type="varchar(256)"/>
+            <column name="campanha" type="varchar(256)"/>
+            <column name="gestor_de_trafego" type="varchar(256)"/>
+            <column name="conjunto_de_anuncios" type="varchar(256)"/>
+            <column name="criativo" type="varchar(256)"/>
+            <column name="resultados" type="float(256)"/>
+            <column name="custo_por_resultados" type="float(256)"/>
+            <column name="valor_gasto" type="float(256)"/>
+            <column name="orcamento" type="float(256)"/>
+            <column name="cliques" type="float(256)"/>
+            <column name="cpm" type="float(256)"/>
+            <column name="ctr" type="float(256)"/>
+            <column name="cpc" type="float(256)"/>
+            <column name="frequencia" type="float(256)"/>
+            <column name="custo_medio_lead" type="float(256)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
