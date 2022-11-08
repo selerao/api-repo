@@ -14,7 +14,7 @@ ARG ADDITIONAL_OPTS
 ENV PROFILE=${PROFILE}
 ENV ADDITIONAL_OPTS=${ADDITIONAL_OPTS}
 
-WORKDIR /app/api
+WORKDIR /excala/api
 
 COPY --from=builder /app/target/excaladashboard-*.jar excaladashboard.jar
 
@@ -22,4 +22,4 @@ SHELL ["/bin/sh", "-c"]
 
 EXPOSE 5005 8080
 
-CMD java ${ADDITIONAL_OPTS} -jar excaladashboard.jar --spring.profiles.active=${PROFILE}
+CMD java ${ADDITIONAL_OPTS} -jar excaladashboard*.jar --spring.profiles.active=${PROFILE}
