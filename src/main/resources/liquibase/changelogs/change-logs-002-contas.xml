@@ -10,11 +10,7 @@
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="empresa" type="varchar(256)"/>
-            <column name="responsavel" type="varchar(256)"/>
-            <column name="gestor_de_trafego" type="varchar(256)"/>
-            <column name="vendedor" type="varchar(256)"/>
-            <column name="ativo" type="varchar(256)"/>
+            <column name="email" type="varchar(256)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
