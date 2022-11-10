@@ -10,27 +10,28 @@
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="conta_de_anuncios" type="bigint(256)">
-                <constraints foreignKeyName="contas" validateForeignKey="1"/>
+            <column name="conta_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_facebook_data_contas" referencedTableName="contas"
+                             referencedColumnNames="id"/>
             </column>
             <column name="campanha" type="varchar(256)"/>
             <column name="gestor_de_trafego" type="varchar(256)"/>
             <column name="conjunto_de_anuncios" type="varchar(256)"/>
             <column name="criativo" type="varchar(256)"/>
-            <column name="resultados" type="float(256)"/>
-            <column name="custo_por_resultados" type="float(256)"/>
-            <column name="valor_gasto" type="money(256)"/>
-            <column name="orcamento" type="float(256)"/>
-            <column name="cliques" type="number(256)"/>
-            <column name="cpm" type="float(256)"/>
-            <column name="ctr" type="number(256)"/>
-            <column name="cpc" type="float(256)"/>
-            <column name="frequencia" type="number(256)"/>
-            <column name="custo_medio_lead" type="money(256)"/>
-            <column name="custo_medio_lead_7" type="money(256)"/>
-            <column name="custo_medio_lead_30" type="money(256)"/>
-            <column name="custo_medio_lead_60" type="money(256)"/>
-            <column name="custo_medio_lead_vitalicio" type="money(256)"/>
+            <column name="resultados" type="decimal(15,2)"/>
+            <column name="custo_por_resultados" type="decimal(15,2)"/>
+            <column name="valor_gasto" type="decimal(15,2)"/>
+            <column name="orcamento" type="decimal(15,2)"/>
+            <column name="cliques" type="number"/>
+            <column name="cpm" type="decimal(15,2)"/>
+            <column name="ctr" type="number"/>
+            <column name="cpc" type="decimal(15,2)"/>
+            <column name="frequencia" type="number"/>
+            <column name="custo_medio_lead" type="decimal(15,2)"/>
+            <column name="custo_medio_lead_7" type="decimal(15,2)"/>
+            <column name="custo_medio_lead_30" type="decimal(15,2)"/>
+            <column name="custo_medio_lead_60" type="decimal(15,2)"/>
+            <column name="custo_medio_lead_vitalicio" type="decimal(15,2)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
