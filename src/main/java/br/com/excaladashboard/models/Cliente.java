@@ -16,19 +16,19 @@ public class Cliente {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "empresa", precision = 15, scale = 2)
+    @Column(name = "empresa", length = 256)
     private String empresa;
 
-    @Column(name = "responsavel", precision = 15, scale = 2)
+    @Column(name = "responsavel", length = 256)
     private String responsavel;
 
-    @Column(name = "gestor_de_trafego", precision = 15, scale = 2)
+    @Column(name = "gestor_de_trafego", length = 256)
     private String gestorTrafego;
 
-    @Column(name = "vendedor", precision = 15, scale = 2)
+    @Column(name = "vendedor", length = 256)
     private String vendedor;
 
-    @Column(name = "ativo", precision = 15, scale = 2)
+    @Column(name = "ativo", length = 256)
     private String ativo;
 
     public Long getId() {

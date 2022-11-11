@@ -16,7 +16,7 @@ public class Conta {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "email", precision = 15, scale = 2)
+    @Column(name = "email", length = 256)
     private String email;
 
     public Long getId1() {

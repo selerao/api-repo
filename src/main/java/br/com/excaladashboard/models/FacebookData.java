@@ -16,16 +16,16 @@ public class FacebookData {
     @Column(name = "conta_id", precision = 15, scale = 2)
     private Long id;
 
-    @Column(name = "campanha", precision = 15, scale = 2)
+    @Column(name = "campanha", length = 256)
     private String campanha;
 
-    @Column(name = "gestor_de_trafego", precision = 15, scale = 2)
+    @Column(name = "gestor_de_trafego", length = 256)
     private String gestorTrafego;
 
-    @Column(name = "conjunto_de_anuncios", precision = 15, scale = 2)
+    @Column(name = "conjunto_de_anuncios", length = 256)
     private String conjuntoAnuncios;
 
-    @Column(name = "criativo", precision = 15, scale = 2)
+    @Column(name = "criativo",length = 256)
     private String empresa;
 
     @Column(name = "resultados", precision = 15, scale = 2)
