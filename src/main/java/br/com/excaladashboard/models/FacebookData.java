@@ -13,63 +13,57 @@ public class FacebookData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "conta_id")
-    private Long id2;
+    @Column(name = "conta_id", precision = 15, scale = 2)
+    private Long id;
 
-    @Column(name = "campanha", length = 256)
+    @Column(name = "campanha", precision = 15, scale = 2)
     private String campanha;
 
-    @Column(name = "gestor_de_trafego", length = 256)
+    @Column(name = "gestor_de_trafego", precision = 15, scale = 2)
     private String gestorTrafego;
 
-    @Column(name = "conjunto_de_anuncios", length = 256)
+    @Column(name = "conjunto_de_anuncios", precision = 15, scale = 2)
     private String conjuntoAnuncios;
 
-    @Column(name = "criativo")
+    @Column(name = "criativo", precision = 15, scale = 2)
     private String empresa;
 
-    @Column(name = "resultados")
-    private Long resultados;
+    @Column(name = "resultados", precision = 15, scale = 2)
+    private Double resultados;
 
-    @Column(name = "custo_por_resultados")
-    private Long custoresultados;
+    @Column(name = "custo_por_resultados", precision = 15, scale = 2)
+    private Double custoresultados;
 
-    @Column(name = "valor_gasto")
-    private Long valorGasto;
+    @Column(name = "valor_gasto", precision = 15, scale = 2)
+    private Double valorGasto;
 
-    @Column(name = "orcamento")
-    private Long orcamento;
+    @Column(name = "orcamento", precision = 15, scale = 2)
+    private Double orcamento;
 
-    @Column(name = "ctm")
-    private Long ctm;
+    @Column(name = "ctm", precision = 15, scale = 2)
+    private Double ctm;
 
-    @Column(name = "ctr")
-    private Long ctr;
+    @Column(name = "ctr", precision = 15, scale = 2)
+    private Double ctr;
 
-    @Column(name = "ctc",)
-    private Long ctc;
+    @Column(name = "ctc",precision = 15, scale = 2)
+    private Double ctc;
 
-    @Column(name = "frequencia")
-    private Long frequencia;
+    @Column(name = "frequencia", precision = 15, scale = 2)
+    private Double frequencia;
 
-    @Column(name = "custo_medio_lead")
-    private Long customediolead7;
+    @Column(name = "custo_medio_lead", precision = 15, scale = 2)
+    private Double customediolead7;
 
-    @Column(name = "custo_medio_lead_7")
-    private Long customediolead30;
+    @Column(name = "custo_medio_lead_7", precision = 15, scale = 2)
+    private Double customediolead30;
 
-    @Column(name = "custo_medio_lead_30" )
-    private Long customediolead60;
-
-    @Column(name = "custo_medio_lead_60")
-    private Long customedioleadvitalicio;
-
-    public Long getId2() {
-        return id2;
+    public Long getId() {
+        return id;
     }
 
-    public void setId2(Long id2) {
-        this.id2 = id2;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCampanha() {
@@ -104,101 +98,110 @@ public class FacebookData {
         this.empresa = empresa;
     }
 
-    public Long getResultados() {
+    public Double getResultados() {
         return resultados;
     }
 
-    public void setResultados(Long resultados) {
+    public void setResultados(Double resultados) {
         this.resultados = resultados;
     }
 
-    public Long getCustoresultados() {
+    public Double getCustoresultados() {
         return custoresultados;
     }
 
-    public void setCustoresultados(Long custoresultados) {
+    public void setCustoresultados(Double custoresultados) {
         this.custoresultados = custoresultados;
     }
 
-    public Long getValorGasto() {
+    public Double getValorGasto() {
         return valorGasto;
     }
 
-    public void setValorGasto(Long valorGasto) {
+    public void setValorGasto(Double valorGasto) {
         this.valorGasto = valorGasto;
     }
 
-    public Long getOrcamento() {
+    public Double getOrcamento() {
         return orcamento;
     }
 
-    public void setOrcamento(Long orcamento) {
+    public void setOrcamento(Double orcamento) {
         this.orcamento = orcamento;
     }
 
-    public Long getCtm() {
+    public Double getCtm() {
         return ctm;
     }
 
-    public void setCtm(Long ctm) {
+    public void setCtm(Double ctm) {
         this.ctm = ctm;
     }
 
-    public Long getCtr() {
+    public Double getCtr() {
         return ctr;
     }
 
-    public void setCtr(Long ctr) {
+    public void setCtr(Double ctr) {
         this.ctr = ctr;
     }
 
-    public Long getCtc() {
+    public Double getCtc() {
         return ctc;
     }
 
-    public void setCtc(Long ctc) {
+    public void setCtc(Double ctc) {
         this.ctc = ctc;
     }
 
-    public Long getFrequencia() {
+    public Double getFrequencia() {
         return frequencia;
     }
 
-    public void setFrequencia(Long frequencia) {
+    public void setFrequencia(Double frequencia) {
         this.frequencia = frequencia;
     }
 
-    public Long getCustomediolead7() {
+    public Double getCustomediolead7() {
         return customediolead7;
     }
 
-    public void setCustomediolead7(Long customediolead7) {
+    public void setCustomediolead7(Double customediolead7) {
         this.customediolead7 = customediolead7;
     }
 
-    public Long getCustomediolead30() {
+    public Double getCustomediolead30() {
         return customediolead30;
     }
 
-    public void setCustomediolead30(Long customediolead30) {
+    public void setCustomediolead30(Double customediolead30) {
         this.customediolead30 = customediolead30;
     }
 
-    public Long getCustomediolead60() {
+    public Double getCustomediolead60() {
         return customediolead60;
     }
 
-    public void setCustomediolead60(Long customediolead60) {
+    public void setCustomediolead60(Double customediolead60) {
         this.customediolead60 = customediolead60;
     }
 
-    public Long getCustomedioleadvitalicio() {
+    public Double getCustomedioleadvitalicio() {
         return customedioleadvitalicio;
     }
 
-    public void setCustomedioleadvitalicio(Long customedioleadvitalicio) {
+    public void setCustomedioleadvitalicio(Double customedioleadvitalicio) {
         this.customedioleadvitalicio = customedioleadvitalicio;
     }
+
+    @Column(name = "custo_medio_lead_30", precision = 15, scale = 2)
+    private Double customediolead60;
+
+    @Column(name = "custo_medio_lead_60", precision = 15, scale = 2)
+    private Double customedioleadvitalicio;
+
+
+
 
 }
 

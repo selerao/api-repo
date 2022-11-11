@@ -9,22 +9,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "contas")
-public class Contas {
+public class Conta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id1;
+    private Long id;
 
-    @Column(name = "email", length = 256)
+    @Column(name = "email", precision = 15, scale = 2)
     private String email;
 
     public Long getId1() {
-        return id1;
+        return id;
     }
 
     public void setId1(Long id1) {
-        this.id1 = id1;
+        this.id = id1;
     }
 
     public String getEmail() {
