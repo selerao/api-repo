@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,8 +15,12 @@ public class FacebookData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "conta_id", precision = 15, scale = 2)
+    @Column(name = "id")
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name="conta_id", nullable=false)
+    private Conta conta;
 
     @Column(name = "campanha", length = 256)
     private String campanha;
@@ -40,17 +46,17 @@ public class FacebookData {
     @Column(name = "orcamento", precision = 15, scale = 2)
     private Double orcamento;
 
-    @Column(name = "ctm", precision = 15, scale = 2)
-    private Double ctm;
+    @Column(name = "cpm", precision = 15, scale = 2)
+    private Double cpm;
 
     @Column(name = "ctr", precision = 15, scale = 2)
     private Double ctr;
 
-    @Column(name = "ctc",precision = 15, scale = 2)
-    private Double ctc;
+    @Column(name = "cpc",precision = 15, scale = 2)
+    private Double cpc;
 
-    @Column(name = "frequencia", precision = 15, scale = 2)
-    private Double frequencia;
+    @Column(name = "frequencia")
+    private Long frequencia;
 
     @Column(name = "custo_medio_lead", precision = 15, scale = 2)
     private Double customediolead7;
@@ -64,6 +70,14 @@ public class FacebookData {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 
     public String getCampanha() {
@@ -130,12 +144,12 @@ public class FacebookData {
         this.orcamento = orcamento;
     }
 
-    public Double getCtm() {
-        return ctm;
+    public Double getCpm() {
+        return cpm;
     }
 
-    public void setCtm(Double ctm) {
-        this.ctm = ctm;
+    public void setCpm(Double cpm) {
+        this.cpm = cpm;
     }
 
     public Double getCtr() {
@@ -146,19 +160,19 @@ public class FacebookData {
         this.ctr = ctr;
     }
 
-    public Double getCtc() {
-        return ctc;
+    public Double getCpc() {
+        return cpc;
     }
 
-    public void setCtc(Double ctc) {
-        this.ctc = ctc;
+    public void setCpc(Double cpc) {
+        this.cpc = cpc;
     }
 
-    public Double getFrequencia() {
+    public Long getFrequencia() {
         return frequencia;
     }
 
-    public void setFrequencia(Double frequencia) {
+    public void setFrequencia(Long frequencia) {
         this.frequencia = frequencia;
     }
 
