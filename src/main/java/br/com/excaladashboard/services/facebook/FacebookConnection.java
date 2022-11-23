@@ -1,23 +1,32 @@
 package br.com.excaladashboard.services.facebook;
 
 import com.facebook.ads.sdk.APIContext;
+import com.facebook.ads.sdk.AdAccount;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class FacebookConnection {
 
-    @Value("${FB_ACCESS_TOKEN}")
-    public String ACCESS_TOKEN;
-    @Value("${FB_ACCOUNT_ID}")
-    public Long ACCOUNT_ID;
-    @Value("${FB_APP_SECRET}")
-    public String APP_SECRET;
+    private final String accessToken;
 
-    public APIContext criaContextoAPI() {
-        System.out.println(ACCOUNT_ID);
-        System.out.println(APP_SECRET);
-        return new APIContext(ACCESS_TOKEN, APP_SECRET);
+    private final Long accountId;
+
+    private final String appSecret;
+
+    @Autowired
+    public FacebookConnection(@Value("${FB_ACCESS_TOKEN}") String accessToken,
+                              @Value("${FB_ACCOUNT_ID}") Long accountId,
+                              @Value("${FB_APP_SECRET}") String appSecret) {
+        this.accessToken = accessToken;
+        this.accountId = accountId;
+        this.appSecret = appSecret;
+    }
+
+    public AdAccount getAdAccount() {
+        APIContext context = new APIContext(this.accessToken, this.appSecret);
+        return new AdAccount(this.accountId, context);
     }
 
 }
