@@ -1,6 +1,8 @@
 package br.com.excaladashboard;
 
+import br.com.excaladashboard.models.FacebookData;
 import br.com.excaladashboard.services.facebook.FacebookService;
+import com.facebook.ads.sdk.AdsInsights;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -21,39 +23,51 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        AdAccount adAccount = this.facebookService.getAdAccount();
-//        Conta conta = new Conta();
-//        conta.setEmail("selerao@email.com");
-//        this.em.persist(conta);
-//        try {
-//            APINodeList<Campaign> campaigns = adAccount.getCampaigns()
-//                    .requestNameField()
-//                    .execute();
-//
-//            List<String> insightsFieldsName = new ArrayList<>();
-//            insightsFieldsName.add("impressions");
-//            insightsFieldsName.add("clicks");
-//            insightsFieldsName.add("cpc");
-//
-//            for (Campaign campaign : campaigns) {
-//                FacebookData facebookData = new FacebookData();
-//                facebookData.setConta(conta);
-//                APINodeList<AdsInsights> adsInsights = campaign.getInsights()
-//                        .requestFields(insightsFieldsName)
-//                        .execute();
-//                System.out.println("Campanha: " + campaign.getFieldName());
-//                for (AdsInsights adsInsight : adsInsights) {
-//                    System.out.println("impressions: " + adsInsight.getFieldImpressions());
-//                    System.out.println("clicks: " + adsInsight.getFieldClicks());
-//                    System.out.println("cpc: " + adsInsight.getFieldCpc());
-//                    facebookData.setCpc(Double.valueOf(adsInsight.getFieldCpc()));
-//                }
-//                System.out.println("========================================");
-//                facebookData.setCampanha(campaign.getFieldName());
-//                this.em.persist(facebookData);
-//            }
-//        } catch (APIException e) {
-//            throw new RuntimeException(e);
-//        }
+        AdAccount adAccount = this.facebookService.getAdAccount();
+        Conta conta = new Conta();
+        conta.setEmail("selerao@email.com");
+        this.em.persist(conta);
+        try {
+            APINodeList<Campaign> campaigns = adAccount.getCampaigns()
+                    .requestNameField()
+                    .execute();
+
+            List<String> insightsFieldsName = new ArrayList<>();
+            insightsFieldsName.add("impressions");
+            insightsFieldsName.add("clicks");
+            insightsFieldsName.add("cpc");
+            insightsFieldsName.add("ctr");
+            insightsFieldsName.add("cpm");
+            insightsFieldsName.add("frequency");
+            insightsFieldsName.add("account_name");
+            insightsFieldsName.add("cost_per_action_type");
+            insightsFieldsName.add("dda_results");
+            insightsFieldsName.add("spend");
+
+            for (Campaign campaign : campaigns) {
+                FacebookData facebookData = new FacebookData();
+                facebookData.setConta(conta);
+                APINodeList<AdsInsights> adsInsights = campaign.getInsights()
+                        .requestFields(insightsFieldsName)
+                        .execute();
+                System.out.println("Campanha: " + campaign.getFieldName());
+                for (AdsInsights adsInsight : adsInsights) {
+                    System.out.println("impressions: " + adsInsight.getFieldImpressions());
+                    System.out.println("clicks: " + adsInsight.getFieldClicks());
+                    System.out.println("cpc: " + adsInsight.getFieldCpc());
+                    System.out.println("cpm: " + adsInsight.getFieldCpm());
+                    System.out.println("frequency: " + adsInsight.getFieldFrequency());
+                    System.out.println("cost_per_action_type: " + adsInsight.getFieldCostPerActionType());
+                    System.out.println("dda_results: " + adsInsight.getFieldCostPerDdaCountbyConvs());
+                    System.out.println("spend: " + adsInsight.getFieldSpend());
+                    facebookData.setCpc(Double.valueOf(adsInsight.getField()));
+                }
+                System.out.println("========================================");
+                facebookData.setCampanha(campaign.getFieldName());
+                this.em.persist(facebookData);
+            }
+        } catch (APIException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
