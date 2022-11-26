@@ -16,8 +16,6 @@
             </column>
             <column name="campanha" type="varchar(256)"/>
             <column name="gestor_de_trafego" type="varchar(256)"/>
-            <column name="conjunto_de_anuncios" type="varchar(256)"/>
-            <column name="criativo" type="varchar(256)"/>
             <column name="resultados" type="decimal(15,2)"/>
             <column name="custo_por_resultados" type="decimal(15,2)"/>
             <column name="valor_gasto" type="decimal(15,2)"/>

@@ -20,7 +20,7 @@ public class Conta {
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "conta")
-    private List<FacebookData> facebookDataList;
+    private List<Campanha> campanhaList;
 
     @Column(name = "email", length = 256)
     private String email;

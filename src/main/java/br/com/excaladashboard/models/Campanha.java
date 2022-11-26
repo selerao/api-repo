@@ -1,17 +1,11 @@
 package br.com.excaladashboard.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "facebook_data")
-public class FacebookData {
+@Table(name = "campanhas")
+public class Campanha {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,17 +16,14 @@ public class FacebookData {
     @JoinColumn(name="conta_id", nullable=false)
     private Conta conta;
 
-    @Column(name = "campanha", length = 256)
-    private String campanha;
+    @Column(name = "nome", length = 256)
+    private String nome;
 
     @Column(name = "gestor_de_trafego", length = 256)
     private String gestorTrafego;
 
-    @Column(name = "conjunto_de_anuncios", length = 256)
-    private String conjuntoAnuncios;
-
-    @Column(name = "criativo",length = 256)
-    private String empresa;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "facebook")
+    private List<Anuncio> anuncios;
 
     @Column(name = "resultados", precision = 15, scale = 2)
     private Double resultados;
@@ -80,37 +71,18 @@ public class FacebookData {
         this.conta = conta;
     }
 
-    public String getCampanha() {
-        return campanha;
+    public String getNome() {
+        return nome;
     }
 
-    public void setCampanha(String campanha) {
-        this.campanha = campanha;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getGestorTrafego() {
         return gestorTrafego;
     }
 
-    public void setGestorTrafego(String gestorTrafego) {
-        this.gestorTrafego = gestorTrafego;
-    }
-
-    public String getConjuntoAnuncios() {
-        return conjuntoAnuncios;
-    }
-
-    public void setConjuntoAnuncios(String conjuntoAnuncios) {
-        this.conjuntoAnuncios = conjuntoAnuncios;
-    }
-
-    public String getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
-    }
 
     public Double getResultados() {
         return resultados;
