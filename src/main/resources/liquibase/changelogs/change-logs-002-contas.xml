@@ -10,7 +10,14 @@
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="email" type="varchar(256)"/>
+            <column name="account_id" type="varchar(256)">
+                <constraints nullable="false" unique="true"/>
+            </column>
         </createTable>
+    </changeSet>
+    <changeSet id="2" author="nicolas.fujisawa">
+        <createIndex tableName="contas" indexName="idx_account_id">
+            <column name="account_id" />
+        </createIndex>
     </changeSet>
 </databaseChangeLog>

@@ -6,7 +6,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
     <changeSet id="2" author="victor.seleri">
-        <createTable tableName="facebook_data">
+        <createTable tableName="campanhas">
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
@@ -14,24 +14,23 @@
                 <constraints nullable="false" foreignKeyName="fk_facebook_data_contas" referencedTableName="contas"
                              referencedColumnNames="id"/>
             </column>
-            <column name="campanha" type="varchar(256)"/>
+            <column name="data" type="date" />
+            <column name="id_externo" type="varchar(150)"/>
+            <column name="nome" type="varchar(256)"/>
             <column name="gestor_de_trafego" type="varchar(256)"/>
-            <column name="conjunto_de_anuncios" type="varchar(256)"/>
-            <column name="criativo" type="varchar(256)"/>
-            <column name="resultados" type="decimal(15,2)"/>
-            <column name="custo_por_resultados" type="decimal(15,2)"/>
+            <column name="resultados" type="number"/>
+            <column name="custo_por_resultado" type="decimal(15,2)"/>
             <column name="valor_gasto" type="decimal(15,2)"/>
             <column name="orcamento" type="decimal(15,2)"/>
             <column name="cliques" type="number"/>
             <column name="cpm" type="decimal(15,2)"/>
-            <column name="ctr" type="number"/>
+            <column name="ctr" type="decimal(15,2)"/>
             <column name="cpc" type="decimal(15,2)"/>
-            <column name="frequencia" type="number"/>
+            <column name="frequencia" type="decimal(5,4)"/>
             <column name="custo_medio_lead" type="decimal(15,2)"/>
             <column name="custo_medio_lead_7" type="decimal(15,2)"/>
             <column name="custo_medio_lead_30" type="decimal(15,2)"/>
-            <column name="custo_medio_lead_60" type="decimal(15,2)"/>
-            <column name="custo_medio_lead_vitalicio" type="decimal(15,2)"/>
+            <column name="custo_medio_lead_90" type="decimal(15,2)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
