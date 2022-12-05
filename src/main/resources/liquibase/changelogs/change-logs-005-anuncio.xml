@@ -10,8 +10,17 @@
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="campanha_id" type="bigint"/>
-            <column name="name" type="varchar(256)"/>
+            <column name="conjunto_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_anuncio_x_conjunto"
+                             referencedTableName="conjuntos"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="data" type="date" />
+            <column name="id_externo" type="varchar(150)"/>
+            <column name="nome" type="varchar(256)"/>
+            <column name="resultados" type="number"/>
+            <column name="valor_gasto" type="decimal(15,2)"/>
+            <column name="custo_por_resultado" type="decimal(15,2)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

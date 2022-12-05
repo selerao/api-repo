@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="0" author="victor.seleri">
+        <createTable tableName="conjuntos">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="campanha_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_conjunto_x_campanha"
+                             referencedTableName="campanhas"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="data" type="date" />
+            <column name="id_externo" type="varchar(150)"/>
+            <column name="nome" type="varchar(256)"/>
+            <column name="resultados" type="number"/>
+            <column name="valor_gasto" type="decimal(15,2)"/>
+            <column name="custo_por_resultado" type="decimal(15,2)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

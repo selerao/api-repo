@@ -1,5 +1,6 @@
 package br.com.excaladashboard.services.facebook;
 
+import br.com.excaladashboard.models.Conta;
 import com.facebook.ads.sdk.APIContext;
 import com.facebook.ads.sdk.AdAccount;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,12 @@ public class FacebookConnection {
         this.appSecret = appSecret;
     }
 
-    public AdAccount getAdAccount() {
+    public AdAccount getAdAccountFromConta() {
+        APIContext context = new APIContext(this.accessToken, this.appSecret);
+        return new AdAccount(this.accountId, context);
+    }
+
+    public AdAccount getAdAccountFromConta(Conta conta) {
         APIContext context = new APIContext(this.accessToken, this.appSecret);
         return new AdAccount(this.accountId, context);
     }

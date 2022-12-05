@@ -1,5 +1,6 @@
 package br.com.excaladashboard.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,14 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "anuncios")
-public class Anuncio {
+@Table(name = "conjuntos")
+public class Conjunto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +26,11 @@ public class Anuncio {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "conjunto_id", nullable = false)
-    private Conjunto conjunto;
+    @JoinColumn(name = "campanha_id", nullable = false)
+    private Campanha campanha;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "conjunto")
+    private List<Anuncio> anuncios = new ArrayList<>();
 
     @Column(name = "data")
     @Temporal(TemporalType.DATE)
@@ -52,16 +59,28 @@ public class Anuncio {
         this.id = id;
     }
 
-    public Conjunto getConjunto() {
-        return conjunto;
+    public Campanha getCampanha() {
+        return campanha;
     }
 
-    public void setConjunto(Conjunto conjunto) {
-        this.conjunto = conjunto;
+    public void setCampanha(Campanha campanha) {
+        this.campanha = campanha;
+    }
+
+    public List<Anuncio> getAnuncios() {
+        return anuncios;
+    }
+
+    public void setAnuncios(List<Anuncio> anuncios) {
+        this.anuncios = anuncios;
     }
 
     public Date getData() {
         return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public String getIdExterno() {
@@ -70,10 +89,6 @@ public class Anuncio {
 
     public void setIdExterno(String idExterno) {
         this.idExterno = idExterno;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public String getNome() {

@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,25 +21,33 @@ public class Conta {
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "conta")
-    private List<Campanha> campanhaList;
+    private List<Campanha> campanhas = new ArrayList<>();
 
-    @Column(name = "email", length = 256)
-    private String email;
+    @Column(name = "account_id", length = 256, unique = true)
+    private String accountId;
 
-    public Long getId1() {
+    public Long getId() {
         return id;
     }
 
-    public void setId1(Long id1) {
-        this.id = id1;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public List<Campanha> getCampanhas() {
+        return campanhas;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCampanhas(List<Campanha> campanhas) {
+        this.campanhas = campanhas;
+    }
+
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
     }
 
 }
