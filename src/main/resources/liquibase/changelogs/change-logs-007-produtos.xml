@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="0" author="victor.seleri">
+        <createTable tableName="produtos">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="produto" type="varchar(256)"/>
+            <column name="categoria" type="varchar(256)"/>
+            <column name="subcategorias" type="varchar(256)"/>
+            <column name="adesao" type="varchar(256)"/>
+            <column name="tipo_venda" type="varchar(256)"/>
+            <column name="administradores" type="varchar(256)"/>
+            <column name="tipos_anuncios" type="varchar(256)"/>
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

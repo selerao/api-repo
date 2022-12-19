@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="0" author="victor.seleri">
+        <createTable tableName="categorias_excala">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="gestor_trafego_categoria" type="varchar(256)"/>
+            <column name="vendedor_clt" type="varchar(256)"/>
+            <column name="vendedor_pj" type="varchar(256)"/>
+            <column name="indicador" type="varchar(256)"/>
+            <column name="fraqueado" type="varchar(256)"/>
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
