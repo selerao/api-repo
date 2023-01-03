@@ -10,11 +10,28 @@
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="empresa" type="varchar(256)"/>
-            <column name="responsavel" type="varchar(256)"/>
-            <column name="gestor_de_trafego" type="varchar(256)"/>
-            <column name="vendedor" type="varchar(256)"/>
+
             <column name="ativo" type="varchar(256)"/>
+            <column name="empresa" type="varchar(256)"/>
+            <column name="telefone" type="varchar(256)"/>
+            <column name="email" type="varchar(256)"/>
+            <column name="cpf" type="varchar(256)"/>
+            <column name="contrato_assinado" type="varchar(256)"/>
+            <column name="preco_fixo_contrato" type="varchar(256)"/>
+            <column name="taxa_variavel_contrato" type="varchar(256)"/>
+            <column name="inicio_contrato" type="date"/>
+            <column name="tempo_contrato_ativo" type="date"/>
+            <column name="status_contrato" type="varchar(256)"/>
+            <column name="vendedor_responsavel" type="varchar(256)"/>
+            <column name="gestor_trafego" type="varchar(256)"/>
+            <column name="produtos_anunciados" type="varchar(256)"/>
+            <column name="valor_total_mes" type="varchar(256)"/>
+            <column name="pagamento_feito" type="varchar(256)"/>
+            <column name="subdivisao" type="varchar(256)"/>
+            <column name="valor_vendido" type="varchar(256)"/>
+            <column name="cotas_vendidas" type="varchar(256)"/>
+            <column name="clientes_compradores" type="varchar(256)"/>
+
         </createTable>
     </changeSet>
 </databaseChangeLog>

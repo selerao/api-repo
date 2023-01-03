@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="0" author="victor.seleri">
+        <createTable tableName="tipos_operacao">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="modelo_venda" type="varchar(256)"/>
+            <column name="abrangencia_anuncios" type="varchar(256)"/>
+            <column name="qual_crm" type="varchar(256)"/>
+            <column name="ferramenta_integracao" type="varchar(256)"/>
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

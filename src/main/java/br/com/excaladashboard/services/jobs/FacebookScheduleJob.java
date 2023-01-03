@@ -19,7 +19,7 @@ public class FacebookScheduleJob {
     @Autowired
     private FacebookService facebookService;
 
-    @Scheduled(cron = CRON)
+    @Scheduled(fixedRate = 60000)
     public void executeJob() {
         // aqui deve ficar o serviço que popula os dados da API do facebook
         this.facebookService.atualizarDados();
