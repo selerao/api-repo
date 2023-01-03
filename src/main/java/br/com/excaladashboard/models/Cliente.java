@@ -2,7 +2,10 @@ package br.com.excaladashboard.models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Temporal;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.TemporalType;
 
 @Entity
@@ -14,8 +17,8 @@ public class Cliente {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "ativo", length = 256)
-    private String ativo;
+    @Column(name = "ativo")
+    private boolean ativo;
 
     @Column(name = "empresa", length = 256)
     private String empresa;
@@ -55,8 +58,11 @@ public class Cliente {
     @Column(name = "status_contrato", length = 256)
     private String statusContrato;
 
+
+    @ManyToOne
+    @OneToMany
     @Column(name = "conta_anuncios", length = 256)
-    private String contaAnuncios;
+    private List<Conta> contas;
 
     @Column(name = "vendedor_responsavel", length = 256)
     private String vendedorResponsavel;
@@ -93,12 +99,20 @@ public class Cliente {
         this.id = id;
     }
 
-    public String getAtivo() {
+    public boolean isAtivo() {
         return ativo;
     }
 
-    public void setAtivo(String ativo) {
+    public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public List<Conta> getContas() {
+        return contas;
+    }
+
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
     }
 
     public String getEmpresa() {
@@ -269,12 +283,6 @@ public class Cliente {
         this.clientesCompradores = clientesCompradores;
     }
 
-    public String getContaAnuncios() {
-        return contaAnuncios;
-    }
 
-    public void setContaAnuncios(String contaAnuncios) {
-        this.contaAnuncios = contaAnuncios;
-    }
 
     }

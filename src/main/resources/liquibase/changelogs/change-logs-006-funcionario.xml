@@ -6,7 +6,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
     <changeSet id="0" author="victor.seleri">
-        <createTable tableName="funcionarios">
+        <createTable tableName="funcionario">
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
@@ -15,9 +15,9 @@
             <column name="email_corporativo" type="varchar(256)"/>
             <column name="email_facebook" type="varchar(256)"/>
             <column name="categoria" type="varchar(256)"/>
-            <column name="cpf_funcionario" type="varchar(256)"/>
-            <column name="cnpj_funcionario" type="varchar(256)"/>
-            <column name="pix_funcionario" type="varchar(256)"/>
+            <column name="cpf" type="varchar(256)"/>
+            <column name="cnpj" type="varchar(256)"/>
+            <column name="pix" type="varchar(256)"/>
             <column name="contrato_assinado" type="varchar(256)"/>
             <column name="responsavel_por_clientes_ativos" type="varchar(256)"/>
             <column name="salario" type="varchar(256)"/>

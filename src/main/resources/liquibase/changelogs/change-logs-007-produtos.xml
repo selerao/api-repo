@@ -11,7 +11,7 @@
                 <constraints nullable="false" primaryKey="true"/>
             </column>
 
-            <column name="produto" type="varchar(256)"/>
+            <column name="nome" type="varchar(256)"/>
             <column name="categoria" type="varchar(256)"/>
             <column name="subcategorias" type="varchar(256)"/>
             <column name="adesao" type="varchar(256)"/>

@@ -11,8 +11,8 @@ public class Produtos {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "produto", length = 150)
-    private String produto;
+    @Column(name = "nome", length = 150)
+    private String nome;
 
     @Column(name = "categoria", length = 150)
     private String categoria;
@@ -41,13 +41,6 @@ public class Produtos {
         this.id = id;
     }
 
-    public String getProduto() {
-        return produto;
-    }
-
-    public void setProduto(String produto) {
-        this.produto = produto;
-    }
 
     public String getCategoria() {
         return categoria;
@@ -97,6 +90,13 @@ public class Produtos {
         this.tiposAnuncios = tiposAnuncios;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
 
 }

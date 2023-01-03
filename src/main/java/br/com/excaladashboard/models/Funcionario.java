@@ -1,45 +1,51 @@
 package br.com.excaladashboard.models;
 
 import javax.persistence.*;
+import java.util.List;
+import javax.persistence.ManyToOne;
 
 @Entity
-@Table(name = "funcionarios")
-public class Funcionarios {
+@Table(name = "funcionario")
+public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "nome_completo", length = 150)
+    @Column(name = "nome_completo", length = 256)
     private String nomeCompleto;
 
-    @Column(name = "email_corporativo", length = 150)
+    @Column(name = "email_corporativo", length = 256)
     private String emailCorporativo;
 
-    @Column(name = "email_facebook", length = 150)
+    @Column(name = "email_facebook", length = 256)
     private String emailFacebook;
 
+    @ManyToOne
     @Column(name = "categoria", length = 256)
-    private String categoria;
+    private List<Cargo> categorias;
 
-    @Column(name = "cpf_funcionario")
-    private String cpfFuncionario;
+    @Column(name = "cpf")
+    private String cpf;
 
-    @Column(name = "cnpj_funcionario")
-    private String cnpjFuncionario;
 
-    @Column(name = "pix_funcionario")
-    private String pixFuncionario;
+    @Column(name = "cnpj")
+    private String cnpj;
+
+    @Column(name = "pix")
+    private String pix;
+
 
     @Column(name = "contrato_assinado")
-    private String contratoAssinado;
+    private boolean contratoAssinado;
 
     @Column(name = "responsavel_por_clientes_ativos")
     private String responsavelClientesAtivos;
 
-    @Column(name = "salario")
-    private String salario;
+
+    @Column(name = "salario", precision = 15, scale = 2)
+    private Double salario;
 
     public Long getId() {
         return id;
@@ -73,45 +79,45 @@ public class Funcionarios {
         this.emailFacebook = emailFacebook;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public String getCpfFuncionario() {
-        return cpfFuncionario;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setCpfFuncionario(String cpfFuncionario) {
-        this.cpfFuncionario = cpfFuncionario;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
-    public String getCnpjFuncionario() {
-        return cnpjFuncionario;
+    public String getPix() {
+        return pix;
     }
 
-    public void setCnpjFuncionario(String cnpjFuncionario) {
-        this.cnpjFuncionario = cnpjFuncionario;
+    public void setPix(String pix) {
+        this.pix = pix;
+    }
+    public List<Cargo> getCategorias() {
+        return categorias;
     }
 
-    public String getPixFuncionario() {
-        return pixFuncionario;
-    }
-
-    public void setPixFuncionario(String pixFuncionario) {
-        this.pixFuncionario = pixFuncionario;
-    }
-
-    public String getContratoAssinado() {
+    public boolean isContratoAssinado() {
         return contratoAssinado;
     }
 
-    public void setContratoAssinado(String contratoAssinado) {
+    public void setContratoAssinado(boolean contratoAssinado) {
         this.contratoAssinado = contratoAssinado;
     }
+
+    public void setCategorias(List<Cargo> categorias) {
+        this.categorias = categorias;
+    }
+
 
     public String getResponsavelClientesAtivos() {
         return responsavelClientesAtivos;
@@ -121,12 +127,13 @@ public class Funcionarios {
         this.responsavelClientesAtivos = responsavelClientesAtivos;
     }
 
-    public String getSalario() {
+    public Double getSalario() {
         return salario;
     }
 
-    public void setSalario(String salario) {
+    public void setSalario(Double salario) {
         this.salario = salario;
     }
+
 
 }
