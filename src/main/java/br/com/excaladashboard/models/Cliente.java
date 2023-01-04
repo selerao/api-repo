@@ -58,10 +58,7 @@ public class Cliente {
     @Column(name = "status_contrato", length = 256)
     private String statusContrato;
 
-
-    @ManyToOne
-    @OneToMany
-    @Column(name = "conta_anuncios", length = 256)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
     private List<Conta> contas;
 
     @Column(name = "vendedor_responsavel", length = 256)

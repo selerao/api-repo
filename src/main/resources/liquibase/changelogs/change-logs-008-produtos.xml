@@ -10,11 +10,14 @@
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-
+            <column name="categoria_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_produto_categoria"
+                             referencedTableName="categorias"
+                             referencedColumnNames="id"/>
+            </column>
             <column name="nome" type="varchar(256)"/>
-            <column name="categoria" type="varchar(256)"/>
-            <column name="subcategorias" type="varchar(256)"/>
-            <column name="adesao" type="varchar(256)"/>
+            <column name="descricao" type="varchar(256)"/>
+            <column name="adesao" type="boolean"/>
             <column name="tipo_venda" type="varchar(256)"/>
             <column name="administradores" type="varchar(256)"/>
             <column name="tipos_anuncios" type="varchar(256)"/>

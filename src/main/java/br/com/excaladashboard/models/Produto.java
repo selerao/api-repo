@@ -2,9 +2,11 @@ package br.com.excaladashboard.models;
 
 import javax.persistence.*;
 
+import static javax.persistence.EnumType.STRING;
+
 @Entity
 @Table(name = "produtos")
-public class Produtos {
+public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,24 +16,25 @@ public class Produtos {
     @Column(name = "nome", length = 150)
     private String nome;
 
-    @Column(name = "categoria", length = 150)
-    private String categoria;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 
-    @Column(name = "subcategorias", length = 256)
-    private String subCategorias;
+    @Column(name = "descricao", length = 256)
+    private String descricao;
 
     @Column(name = "adesao", length = 256)
-    private String adesao;
+    private boolean adesao;
 
     @Column(name = "tipo_venda", length = 256)
-    private String tipoVenda;
+    @Enumerated(STRING)
+    private TipoVenda tipoVenda;
 
-    @Column(name = "administradores", length = 256)
+    @Column(name = "administradores", length = 256) // duvida
     private String administradores;
 
-    @Column(name = "tipos_anuncios", length = 256)
+    @Column(name = "tipos_anuncios", length = 256) // duvida
     private String tiposAnuncios;
-
 
     public Long getId() {
         return id;
@@ -41,36 +44,43 @@ public class Produtos {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
 
-    public String getCategoria() {
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
-    public String getSubCategorias() {
-        return subCategorias;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setSubCategorias(String subCategorias) {
-        this.subCategorias = subCategorias;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getAdesao() {
+    public boolean isAdesao() {
         return adesao;
     }
 
-    public void setAdesao(String adesao) {
+    public void setAdesao(boolean adesao) {
         this.adesao = adesao;
     }
 
-    public String getTipoVenda() {
+    public TipoVenda getTipoVenda() {
         return tipoVenda;
     }
 
-    public void setTipoVenda(String tipoVenda) {
+    public void setTipoVenda(TipoVenda tipoVenda) {
         this.tipoVenda = tipoVenda;
     }
 
@@ -89,14 +99,4 @@ public class Produtos {
     public void setTiposAnuncios(String tiposAnuncios) {
         this.tiposAnuncios = tiposAnuncios;
     }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-
 }

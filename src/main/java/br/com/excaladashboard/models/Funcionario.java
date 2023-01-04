@@ -2,7 +2,6 @@ package br.com.excaladashboard.models;
 
 import javax.persistence.*;
 import java.util.List;
-import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "funcionario")
@@ -22,9 +21,14 @@ public class Funcionario {
     @Column(name = "email_facebook", length = 256)
     private String emailFacebook;
 
-    @ManyToOne
-    @Column(name = "categoria", length = 256)
-    private List<Cargo> categorias;
+    @ManyToMany(cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name = "funcionario_cargo",
+            joinColumns = { @JoinColumn(name = "funcionario_id") },
+            inverseJoinColumns = { @JoinColumn(name = "cargo_id") })
+    private List<Cargo> cargos;
 
     @Column(name = "cpf")
     private String cpf;
@@ -102,8 +106,8 @@ public class Funcionario {
     public void setPix(String pix) {
         this.pix = pix;
     }
-    public List<Cargo> getCategorias() {
-        return categorias;
+    public List<Cargo> getCargos() {
+        return cargos;
     }
 
     public boolean isContratoAssinado() {
@@ -114,8 +118,8 @@ public class Funcionario {
         this.contratoAssinado = contratoAssinado;
     }
 
-    public void setCategorias(List<Cargo> categorias) {
-        this.categorias = categorias;
+    public void setCargos(List<Cargo> cargos) {
+        this.cargos = cargos;
     }
 
 
