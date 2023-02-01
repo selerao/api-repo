@@ -13,6 +13,10 @@
             <column name="account_id" type="varchar(256)">
                 <constraints nullable="false" unique="true"/>
             </column>
+            <column name="cliente_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_contas_cliente" referencedTableName="clientes"
+                             referencedColumnNames="id"/>
+            </column>
         </createTable>
     </changeSet>
     <changeSet id="2" author="nicolas.fujisawa">

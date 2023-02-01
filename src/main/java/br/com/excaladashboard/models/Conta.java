@@ -1,15 +1,9 @@
 package br.com.excaladashboard.models;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "contas")
@@ -25,6 +19,10 @@ public class Conta {
 
     @Column(name = "account_id", length = 256, unique = true)
     private String accountId;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", nullable = false)
+    private Cliente cliente;
 
     public Long getId() {
         return id;
@@ -50,4 +48,24 @@ public class Conta {
         this.accountId = accountId;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Conta conta = (Conta) o;
+        return Objects.equals(id, conta.id) && Objects.equals(campanhas, conta.campanhas) && Objects.equals(accountId, conta.accountId) && Objects.equals(cliente, conta.cliente);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, campanhas, accountId, cliente);
+    }
 }

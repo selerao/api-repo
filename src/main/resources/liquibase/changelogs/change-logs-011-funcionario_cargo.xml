@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="0" author="nicolas.fujisawa">
+        <createTable tableName="funcionario_cargo">
+            <column name="cargo_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_cargo_id_cargo" referencedTableName="cargos"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="funcionario_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_func_id_func" referencedTableName="funcionario"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
