@@ -7,13 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
 
+@CrossOrigin(maxAge = 3600, allowedHeaders = "*")
 @RestController
 public class CargoController {
 
     @Autowired
     private CargoService cargoService;
+
+    @GetMapping("/cargos/{id}")
+    public ResponseEntity<Cargo> buscarCargoPorId(@PathVariable Long id) {
+        Optional<Cargo> cargo = this.cargoService.findCargoById(id);
+        return ResponseEntity.of(cargo);
+    }
 
     @GetMapping("/cargos")
     public List<Cargo> listarCargos() {
@@ -21,9 +31,9 @@ public class CargoController {
     }
 
     @PostMapping("/cargos")
-    public ResponseEntity<?> criarCargo(@RequestBody Cargo cargo) {
-        cargoService.saveCargo(cargo);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<?> criarCargo(@RequestBody Cargo cargo) throws URISyntaxException {
+        Cargo persistedCargo = this.cargoService.saveCargo(cargo);
+        return ResponseEntity.ok(persistedCargo);
     }
 
     @PutMapping("/cargos/{id}")

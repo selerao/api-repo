@@ -58,7 +58,7 @@ public class Cliente {
     @Column(name = "status_contrato", length = 256)
     private String statusContrato;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "cliente")
     private List<Conta> contas;
 
     @Column(name = "vendedor_responsavel", length = 256)

@@ -21,7 +21,7 @@ public class Conta {
     private String accountId;
 
     @ManyToOne
-    @JoinColumn(name = "cliente_id", nullable = false)
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     public Long getId() {
