@@ -57,6 +57,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>excaladashboard</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -16,6 +16,8 @@
             <column name="telefone" type="varchar(256)"/>
             <column name="email" type="varchar(256)"/>
             <column name="cpf" type="varchar(256)"/>
+            <column name="cnpj" type="varchar(256)"/>
+            <column name="pagamento_em_dia" type="varchar(256)"/>
             <column name="contrato_assinado" type="varchar(256)"/>
             <column name="preco_fixo_contrato" type="varchar(256)"/>
             <column name="taxa_variavel_contrato" type="varchar(256)"/>

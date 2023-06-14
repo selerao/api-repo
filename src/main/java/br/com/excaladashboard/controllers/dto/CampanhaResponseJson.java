@@ -1,7 +1,5 @@
 package br.com.excaladashboard.controllers.dto;
 
-import br.com.excaladashboard.models.Conta;
-
 import java.util.Date;
 
 public class CampanhaResponseJson {

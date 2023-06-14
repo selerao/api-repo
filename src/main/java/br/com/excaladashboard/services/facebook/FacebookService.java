@@ -15,8 +15,6 @@ import com.facebook.ads.sdk.AdAccount;
 import com.facebook.ads.sdk.AdSet;
 import com.facebook.ads.sdk.AdsInsights;
 import com.facebook.ads.sdk.Campaign;
-import org.hibernate.graph.Graph;
-import org.hibernate.graph.internal.RootGraphImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

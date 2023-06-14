@@ -1,5 +1,7 @@
 package br.com.excaladashboard.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +25,7 @@ public class Anuncio {
 
     @ManyToOne
     @JoinColumn(name = "conjunto_id", nullable = false)
+    @JsonBackReference
     private Conjunto conjunto;
 
     @Column(name = "data")

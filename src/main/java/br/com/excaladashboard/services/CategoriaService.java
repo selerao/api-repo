@@ -1,16 +1,12 @@
 package br.com.excaladashboard.services;
 
-import br.com.excaladashboard.models.Cargo;
 import br.com.excaladashboard.models.Categoria;
 import br.com.excaladashboard.repositories.CategoriaRepository;
-import br.com.excaladashboard.services.facebook.UtilsService;
-import com.facebook.ads.sdk.Ad;
-import com.facebook.ads.sdk.AdsInsights;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoriaService {

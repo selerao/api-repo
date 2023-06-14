@@ -1,6 +1,6 @@
 package br.com.excaladashboard.controllers;
 
-import br.com.excaladashboard.controllers.dto.CampanhaResponseJson;
+import br.com.excaladashboard.models.Campanha;
 import br.com.excaladashboard.services.CampanhaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,11 @@ public class CampanhaController {
     private CampanhaService campanhaService;
 
     @GetMapping
-    public ResponseEntity<String> buscarTodasCampanhas(@RequestParam("accountId") String accountId) {
-        return ResponseEntity.ok("oi eu sou o gocu");
+    public ResponseEntity<List<Campanha>> buscarTodasCampanhas(@RequestParam("accountId") String accountId) {
+        List<Campanha> campanhas = this.campanhaService.findCampanhaPorConta(accountId);
+        if (campanhas == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(campanhas);
     }
 }

@@ -7,6 +7,7 @@ services:
     image: excala-api
     container_name: excalaapp-api
     volumes:
+      # Comentar caso esteja em AWS/PROD
       - ${EXCALA_DEPLOY_PATH}:/excala/api
     ports:
       - "5005:5005"

@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public interface CampanhaRepository extends JpaRepository<Campanha, Long> {
@@ -16,4 +17,7 @@ public interface CampanhaRepository extends JpaRepository<Campanha, Long> {
             "c.data = :data")
     Campanha buscarCampanhaPorAccountIdEData(@Param("idExterno") String idExterno, @Param("data") Date data);
 
+    @Query(value = "SELECT c FROM Campanha c " +
+            "WHERE c.conta.id = :id")
+    List<Campanha> findCampanhaByContaId(@Param("id") Long id);
 }

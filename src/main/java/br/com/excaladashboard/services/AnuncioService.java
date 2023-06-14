@@ -1,7 +1,6 @@
 package br.com.excaladashboard.services;
 
 import br.com.excaladashboard.models.Anuncio;
-import br.com.excaladashboard.models.Campanha;
 import br.com.excaladashboard.models.Conjunto;
 import br.com.excaladashboard.repositories.AnuncioRepository;
 import br.com.excaladashboard.services.facebook.UtilsService;

@@ -1,6 +1,16 @@
 package br.com.excaladashboard.models;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import static javax.persistence.EnumType.STRING;
 
@@ -18,6 +28,7 @@ public class Produto {
 
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
+    @JsonBackReference
     private Categoria categoria;
 
     @Column(name = "descricao", length = 256)

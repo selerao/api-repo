@@ -2,7 +2,6 @@ package br.com.excaladashboard.services;
 
 import br.com.excaladashboard.models.Cargo;
 import br.com.excaladashboard.repositories.CargoRepository;
-import br.com.excaladashboard.services.facebook.UtilsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

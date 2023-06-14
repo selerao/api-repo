@@ -1,5 +1,8 @@
 package br.com.excaladashboard.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,9 +30,11 @@ public class Campanha {
 
     @ManyToOne
     @JoinColumn(name = "conta_id", nullable = false)
+    @JsonBackReference
     private Conta conta;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "campanha")
+    @JsonManagedReference
     private List<Conjunto> conjuntos = new ArrayList<>();
 
     @Column(name = "data")

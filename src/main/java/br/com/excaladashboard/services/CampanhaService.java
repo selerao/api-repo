@@ -3,6 +3,7 @@ package br.com.excaladashboard.services;
 import br.com.excaladashboard.models.Campanha;
 import br.com.excaladashboard.models.Conta;
 import br.com.excaladashboard.repositories.CampanhaRepository;
+import br.com.excaladashboard.repositories.ContaRepository;
 import br.com.excaladashboard.services.facebook.UtilsService;
 import com.facebook.ads.sdk.AdsInsights;
 import com.facebook.ads.sdk.Campaign;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Transactional
@@ -24,6 +26,9 @@ public class CampanhaService {
 
     @Autowired
     private UtilsService utilsService;
+
+    @Autowired
+    private ContaRepository contaRepository;
 
     public Campanha salvarCampanha(String accountId, Campaign campaign, AdsInsights insights) {
         Conta conta = this.contaService.buscarConta(accountId);
@@ -52,6 +57,14 @@ public class CampanhaService {
 
     public Campanha getCampanhaDoDia(Campaign campaign) {
         return this.campanhaRepository.buscarCampanhaPorAccountIdEData(campaign.getId(), new Date());
+    }
+
+    public List<Campanha> findCampanhaPorConta(String accountId) {
+        Conta conta = this.contaRepository.buscarContaPorAccountId(accountId);
+        if (conta == null) {
+            return null;
+        }
+        return this.campanhaRepository.findCampanhaByContaId(conta.getId());
     }
 
 }
