@@ -7,9 +7,9 @@ spring:
       ddl-auto: none
     show-sql: true
   datasource:
-    url: jdbc:mysql://db:3306/excalaapp
-    username: excalaapp
-    password: excalaapp
+    url: ${DS_URL}
+    username: ${DS_USERNAME}
+    password: ${DS_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
